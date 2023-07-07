@@ -124,7 +124,7 @@ def get_gas_stations_full(fullpage_html):
             },
         }
 
-    print(json.dumps(data))
+    # print(json.dumps(data))
     return json.dumps(data)
 
 
