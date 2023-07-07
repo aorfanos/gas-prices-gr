@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "scrape-gas-prices-gr"
+version = "0.1.0"
+description = "Scrape gas prices from several sites that expose them"
+authors = ["Alex Orfanos <aorfanos@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "scrape_gas_prices_gr"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bs4 = "^0.0.1"
+requests = "^2.31.0"
+flask = "^2.3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
