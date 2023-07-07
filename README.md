@@ -1,21 +1,30 @@
 # Scrape Gas Prices XEGR
 
-This is a Python script that scrapes gas prices from the vrisko.gr website for a given location in Greece.
+This is a Python script that scrapes gas prices from
+the vrisko.gr website for a given location in Greece.
 
 ## Requirements
+
 * asdf
 
 ## Usage
-Running the script will start a server on port 5000. The server has the following endpoints:
-* `/scrape/xegr/<location>` - Scrapes the gas prices for the given location and returns them as JSON
+
+Running the script will start a server on port 5000.
+The server has the following endpoints:
+
+* `/scrape/xegr/<location>`
 
 ### Example
+
 ```
 $ curl http://localhost:5000/scrape/xegr/athina
-## Note: you can get the endpoints for the other locations by visiting the website and inspecting the network requests
+## Note: you can get the endpoints for the other
+locations by visiting the website and
+inspecting the network requests
 ```
 
-Each gas station in the location is represented by a dictionary with the following keys:
+Each gas station in the location is represented
+by a dictionary with the following keys:
 
 * name: The name of the gas station.
 * address: The address of the gas station.
@@ -24,4 +33,4 @@ Each gas station in the location is represented by a dictionary with the followi
 * auto_gas: The price of auto gas at the gas station.
 * auto_diesel: The price of auto diesel at the gas station.
 * heating_oil: The price of heating oil at the gas station.
-* heating_oil_lt_1000lt: The price of heating oil for quantities less than 1000 liters at the gas station.
+* heating_oil_lt_1000lt: The price of heating oil for quantities > 1000 lt
