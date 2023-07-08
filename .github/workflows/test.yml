@@ -28,9 +28,9 @@ jobs:
       if: steps.cache-env.outputs.cache-hit != 'true'
       uses: asdf-vm/actions/install@v2.2.0
 
-    - name: Run poetry install
+    - name: Run poetry shell
       run: |
-        poetry install
+        poetry shell
 
     - name: Run unit tests and code coverage
       run: |
