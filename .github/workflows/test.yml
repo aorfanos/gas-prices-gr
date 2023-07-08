@@ -1,0 +1,24 @@
+name: Python CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Set up environment
+      uses: asdf-vm/actions/install@v2.2.0
+
+    - name: Run unit tests and code coverage
+      run: |
+        coverage run -m pytest
+        coverage report -m
