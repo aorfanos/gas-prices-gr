@@ -22,8 +22,7 @@ app = Flask(__name__)
 def get_gas_stations_fullpage_for_location_html(location):
     """Returns the full page html for a given location."""
     response = requests.get(
-        f'https://www.vrisko.gr/\
-            times-kafsimon-venzinadika/{location}', headers=headers,
+        f'https://www.vrisko.gr/times-kafsimon-venzinadika/{location}', headers=headers,
     )
     if response.status_code == 200:
         return response.content
@@ -141,8 +140,8 @@ def extract_gas_price(gas_station_fueltype_string):
 # >> Flask << #
 # dynamic route ref:
 # https://www.geeksforgeeks.org/generating-dynamic-urls-in-flask/
-@app.route('/scrape/xegr/<string:Location>')
-def scrape_xegr(Location):
+@app.route('/scrape/vrisko/<string:Location>')
+def scrape_vriskogr(Location):
     main_page_html = get_gas_stations_fullpage_for_location_html(Location)
     return get_gas_stations_full(main_page_html)
 
