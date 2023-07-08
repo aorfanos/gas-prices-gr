@@ -6,5 +6,6 @@
 |---------------|---------------|
 | Athens        | athina        |
 | Galatsi       | galatsi       |
-| Palaio Faliro | palaio-faliro |
+| Nafplio       | nayplio       |
 | Mytilini      | mytilini      |
+| Palaio Faliro | palaio-faliro |
