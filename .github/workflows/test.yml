@@ -15,8 +15,22 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Use cached environment
+      id: cache-env
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.asdf/installs
+          ~/.asdf/plugins
+        key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}}
+
     - name: Set up environment
+      if: steps.cache-env.outputs.cache-hit != 'true'
       uses: asdf-vm/actions/install@v2.2.0
+
+    - name: Run poetry install
+      run: |
+        poetry install
 
     - name: Run unit tests and code coverage
       run: |
