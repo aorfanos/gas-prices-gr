@@ -3,7 +3,7 @@ import re
 import json
 
 from bs4 import BeautifulSoup
-from flask import Flask
+from flask import Flask, make_response
 
 FAKE_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) \
 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
@@ -27,11 +27,15 @@ def get_gas_stations_fullpage_for_location_html(location):
     if response.status_code == 200:
         return response.content
     else:
-        print(f'Error code: {response.status_code}')
+        return None
 
 
 def get_gas_stations_full(fullpage_html):
     data = {}
+    if fullpage_html is None:
+        srv_response = make_response('Location not found for vrisko', 404)
+        srv_response.status_code = 404
+        return srv_response
     soup = BeautifulSoup(fullpage_html, 'html.parser')
     gas_station_names = soup.find_all('div', class_='GasCompanyName')
     gs_names_list = []
