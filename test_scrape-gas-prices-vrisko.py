@@ -1,5 +1,5 @@
 import unittest
-from scrape_gas_prices_xegr import extract_gas_price
+from scrape_gas_prices_vrisko import extract_gas_price
 
 
 class TestExtractGasPrice(unittest.TestCase):
