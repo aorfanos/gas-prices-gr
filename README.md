@@ -1,7 +1,8 @@
-# Scrape Gas Prices XEGR
+# Scrape Gas Prices Greece API
 
 This is a Python script that scrapes gas prices from
-the vrisko.gr website for a given location in Greece.
+the vrisko.gr website for a given location in Greece,
+and outputs the results in JSON format via REST API.
 
 ## Requirements
 
