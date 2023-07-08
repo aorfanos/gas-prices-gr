@@ -30,7 +30,7 @@ jobs:
 
     - name: Run poetry shell
       run: |
-        poetry shell
+        source $(poetry env info --path)/bin/activate
 
     - name: Run unit tests and code coverage
       run: |
