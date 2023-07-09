@@ -52,11 +52,15 @@ jobs:
         --md-report-zeros empty \
         --md-report-color never \
         ./gas-prices-gr >> unit-tests.md
+
+        echo "# Testing summary" >> $GITHUB_STEP_SUMMARY
+        echo -en "## Unit tests\n\n" >> $GITHUB_STEP_SUMMARY
         echo "$(cat unit-tests.md)" >> $GITHUB_STEP_SUMMARY
 
     - name: Run code coverage
       working-directory: ${{ github.workspace }}
       run: |
+        echo -en "\n\n## Code coverage\n\n" >> $GITHUB_STEP_SUMMARY
         poetry run coverage report --format=markdown \
         ./gas-prices-gr/scrape_gas_prices_vrisko.py \
         >> $GITHUB_STEP_SUMMARY
