@@ -13,8 +13,6 @@ headers = {
     'User-Agent': FAKE_UA,
 }
 
-# response = requests.get(URL, headers=headers)
-
 # >> Flask app init << #
 app = Flask(__name__)
 
@@ -127,7 +125,6 @@ def get_gas_stations_full(fullpage_html):
             },
         }
 
-    # print(json.dumps(data))
     return json.dumps(data)
 
 
@@ -151,4 +148,4 @@ def scrape_vriskogr(Location):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
