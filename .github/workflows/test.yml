@@ -45,9 +45,11 @@ jobs:
     - name: Run unit tests
       working-directory: ${{ github.workspace }}
       run: |
-        poetry run python ./gas-prices-gr/test_scrape_gas_prices_vrisko.py
+        poetry run python ./gas-prices-gr/test_scrape_gas_prices_vrisko.py \
+        >> $GITHUB_STEP_SUMMARY
 
     - name: Run code coverage
       working-directory: ${{ github.workspace }}
       run: |
-        poetry run coverage report ./gas-prices-gr/scrape_gas_prices_vrisko.py
+        poetry run coverage report ./gas-prices-gr/scrape_gas_prices_vrisko.py \
+        >> $GITHUB_STEP_SUMMARY
