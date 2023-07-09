@@ -9,4 +9,4 @@ COPY . /app/
 
 RUN poetry install --no-dev --no-root
 
-ENTRYPOINT [ "python", "scrape_gas_prices_vrisko.py" ]
+ENTRYPOINT [ "python", "gas_prices_gr/scrape_gas_prices_vrisko.py" ]
