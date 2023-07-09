@@ -38,6 +38,7 @@ jobs:
       uses: asdf-vm/actions/install@v2.2.0
 
     - name: Install dependencies
+      working-directory: ${{ github.workspace }}
       run: |
         poetry config virtualenvs.create false
         poetry install --no-root --no-interaction --no-dev
@@ -48,5 +49,6 @@ jobs:
         python ./gas-prices-gr/test_scrape_gas_prices_vrisko.py
 
     - name: Run code coverage
+      working-directory: ${{ github.workspace }}
       run: |
-        coverage report ${{ github.workspace }}/scrape_gas_prices_vrisko.py
+        coverage report ./gas-prices-gr/scrape_gas_prices_vrisko.py
