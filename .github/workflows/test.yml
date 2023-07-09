@@ -27,10 +27,10 @@ jobs:
       id: cache-env
       uses: actions/cache@v2
       with:
-        path: |
-          ~/.asdf/installs
-          ~/.asdf/plugins
-        key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
+        path: ${{ env.ASDF_DIR }}
+        key: ${{ runner.os }}-asdf-gpgrapi-${{ hashFiles('**/.tool-versions') }}
+        restore-keys: |
+          ${{ runner.os }}-asdf-gpgrapi-
 
     - name: Set up environment
       if: steps.cache-env.outputs.cache-hit != 'true'
