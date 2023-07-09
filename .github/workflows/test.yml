@@ -15,9 +15,8 @@ jobs:
       # with:
       #   fetch-depth: 0
 
-    - name: debug
-      run: |
-        find . -maxdepth 3 -type f -exec ls -lh "{}" \;
+    - name: Set up asdf
+      uses: asdf-vm/actions/setup@v2
 
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
