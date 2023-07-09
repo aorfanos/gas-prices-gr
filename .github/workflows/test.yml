@@ -30,8 +30,8 @@ jobs:
 
     - name: Run unit tests
       run: |
-        poetry run python test_scrape_gas_prices_vrisko.py
+        poetry run python ./test_scrape_gas_prices_vrisko.py
 
     - name: Run code coverage
       run: |
-        poetry run coverage report scrape_gas_prices_vrisko.py
+        poetry run coverage report ./scrape_gas_prices_vrisko.py
