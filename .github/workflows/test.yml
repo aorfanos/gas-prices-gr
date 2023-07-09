@@ -15,6 +15,11 @@ jobs:
       # with:
       #   fetch-depth: 0
 
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
     - name: Use cached environment
       id: cache-env
       uses: actions/cache@v2
@@ -31,7 +36,7 @@ jobs:
     - name: Install dependencies
       run: |
         poetry config virtualenvs.create false
-        poetry install --no-root --no-interaction
+        poetry install --no-root --no-interaction --no-dev
 
     - name: Run unit tests
       run: |
