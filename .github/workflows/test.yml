@@ -28,10 +28,15 @@ jobs:
       if: steps.cache-env.outputs.cache-hit != 'true'
       uses: asdf-vm/actions/install@v2.2.0
 
+    - name: Install dependencies
+      run: |
+        poetry config virtualenvs.create false
+        poetry install --no-dev --no-interaction --no-ansi
+
     - name: Run unit tests
       run: |
-        poetry run python ${{ github.workspace }}/test_scrape_gas_prices_vrisko.py
+        python test_scrape_gas_prices_vrisko.py
 
     - name: Run code coverage
       run: |
-        poetry run coverage report ${{ github.workspace }}/scrape_gas_prices_vrisko.py
+        coverage report ${{ github.workspace }}/scrape_gas_prices_vrisko.py
