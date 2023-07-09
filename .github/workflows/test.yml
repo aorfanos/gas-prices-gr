@@ -38,6 +38,10 @@ jobs:
         poetry config virtualenvs.create false
         poetry install --no-root --no-interaction --no-dev
 
+    - name: debug
+      run: |
+        find . -maxdepth 1 -type f -exec ls -lh "{}"" \;
+
     - name: Run unit tests
       run: |
         python test_scrape_gas_prices_vrisko.py
