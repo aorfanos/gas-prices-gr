@@ -1,4 +1,4 @@
-name: Python CI
+name: Test
 
 on:
   pull_request:
@@ -29,11 +29,9 @@ jobs:
       uses: asdf-vm/actions/install@v2.2.0
 
     - name: Run unit tests
-      working-directory: ${{ github.workspace }}
       run: |
-        poetry run python test_scrape_gas_prices_vrisko.py
+        poetry run python ${{ github.workspace }}/test_scrape_gas_prices_vrisko.py
 
     - name: Run code coverage
-      working-directory: ${{ github.workspace }}
       run: |
-        poetry run coverage report scrape_gas_prices_vrisko.py
+        poetry run coverage report ${{ github.workspace }}/scrape_gas_prices_vrisko.py
