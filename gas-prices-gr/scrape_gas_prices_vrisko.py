@@ -4,6 +4,7 @@ import json
 
 from bs4 import BeautifulSoup
 from flask import Flask, make_response
+from utils import extract_date, greek_date_to_ts
 
 FAKE_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) \
 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
@@ -40,6 +41,7 @@ def get_gas_stations_full(fullpage_html):
     gas_station_addr = soup.find_all('div', class_='GasAddress')
     gs_addr_list = []
     gas_result_footer = soup.find_all('div', class_='GasResultFooter')
+    gas_result_last_update = soup.find_all('div', class_='GasResultLastUpdate')
 
     gs_unl_95_list = []
     gs_unl_100_list = []
@@ -47,6 +49,7 @@ def get_gas_stations_full(fullpage_html):
     gs_auto_diesel_list = []
     gs_heating_oil_list = []
     gs_heating_oil_lt_1000lt_list = []
+    last_update_date_list = []
 
     for i, gas_station_name in enumerate(gas_station_names):
         gas_station_names[i] = gas_station_name.text
@@ -110,11 +113,16 @@ def get_gas_stations_full(fullpage_html):
                 ),
             )
 
-    # >> Produce result JSON << #
+    for gas_result in gas_result_last_update:
+        last_update_date_gr = extract_date(gas_result.text)
+        last_update_date_list.append(last_update_date_gr)
+
+        # >> Produce result JSON << #
     for i in range(len(gas_station_names)):
         data[gas_station_names[i]] = {
             'name': gs_names_list[i],
             'address': gs_addr_list[i],
+            'last_update_ts': greek_date_to_ts(last_update_date_list[i]),
             'fuel_prices': {
                 'unleaded_95': gs_unl_95_list[i],
                 'unleaded_100': gs_unl_100_list[i],
