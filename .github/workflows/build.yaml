@@ -1,14 +1,9 @@
 name: Build and Push Docker Image
 
-# on:
-#   push:
-#     branches:
-#       - main
-
-# >> Temporary workaround for branch development << #
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, labeled]
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+*"
 
 env:
   IMAGE_NAME: gas-prices-gr-api
