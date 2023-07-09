@@ -45,11 +45,18 @@ jobs:
     - name: Run unit tests
       working-directory: ${{ github.workspace }}
       run: |
-        poetry run python ./gas-prices-gr/test_scrape_gas_prices_vrisko.py \
-        >> $GITHUB_STEP_SUMMARY
+        poetry run python -m pytest \
+        --quiet \
+        --md-report \
+        --md-report-verbose=1 \
+        --md-report-zeros empty \
+        --md-report-color never \
+        ./gas-prices-gr >> unit-tests.md
+        echo "$(cat unit-tests.md)" >> $GITHUB_STEP_SUMMARY
 
     - name: Run code coverage
       working-directory: ${{ github.workspace }}
       run: |
-        poetry run coverage report ./gas-prices-gr/scrape_gas_prices_vrisko.py \
+        poetry run coverage report --format=markdown \
+        ./gas-prices-gr/scrape_gas_prices_vrisko.py \
         >> $GITHUB_STEP_SUMMARY
