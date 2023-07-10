@@ -5,6 +5,7 @@ import json
 from bs4 import BeautifulSoup
 from flask import Flask, make_response
 from utils import extract_date, greek_date_to_ts
+from gas_station_enum import find_gas_station_company
 
 FAKE_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) \
 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
@@ -42,6 +43,7 @@ def get_gas_stations_full(fullpage_html):
     gs_addr_list = []
     gas_result_footer = soup.find_all('div', class_='GasResultFooter')
     gas_result_last_update = soup.find_all('div', class_='GasResultLastUpdate')
+    icon_span = soup.find_all('span', class_='GasResultLastUpdateIcon')
 
     gs_unl_95_list = []
     gs_unl_100_list = []
@@ -50,6 +52,7 @@ def get_gas_stations_full(fullpage_html):
     gs_heating_oil_list = []
     gs_heating_oil_lt_1000lt_list = []
     last_update_date_list = []
+    icon_span_list = []
 
     for i, gas_station_name in enumerate(gas_station_names):
         gas_station_names[i] = gas_station_name.text
@@ -117,11 +120,15 @@ def get_gas_stations_full(fullpage_html):
         last_update_date_gr = extract_date(gas_result.text)
         last_update_date_list.append(last_update_date_gr)
 
+    for i, icon in enumerate(icon_span):
+        icon_span_list.append(find_gas_station_company(icon.span.get('class')))
+
         # >> Produce result JSON << #
     for i in range(len(gas_station_names)):
         data[gas_station_names[i]] = {
             'name': gs_names_list[i],
             'address': gs_addr_list[i],
+            'company': icon_span_list[i],
             'last_update_ts': greek_date_to_ts(last_update_date_list[i]),
             'fuel_prices': {
                 'unleaded_95': gs_unl_95_list[i],
@@ -149,7 +156,7 @@ def extract_gas_price(gas_station_fueltype_string):
 # >> Flask << #
 # dynamic route ref:
 # https://www.geeksforgeeks.org/generating-dynamic-urls-in-flask/
-@app.route('/scrape/vrisko/<string:Location>')
+@ app.route('/scrape/vrisko/<string:Location>')
 def scrape_vriskogr(Location):
     main_page_html = get_gas_stations_fullpage_for_location_html(Location)
     return get_gas_stations_full(main_page_html)
