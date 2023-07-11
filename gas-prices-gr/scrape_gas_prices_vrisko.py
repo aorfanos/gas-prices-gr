@@ -4,8 +4,8 @@ import json
 
 from bs4 import BeautifulSoup
 from flask import Flask, make_response
-from utils import extract_date, greek_date_to_ts
-from gas_station_enum import find_gas_station_company
+from .utils import extract_date, greek_date_to_ts
+from .gas_station_enum import find_gas_station_company
 
 FAKE_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) \
 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
@@ -163,4 +163,6 @@ def scrape_vriskogr(Location):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    from wsgiref.simple_server import make_server
+    httpd = make_server('0.0.0.0', 5000, app)
+    httpd.serve_forever()
