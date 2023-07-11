@@ -11,3 +11,4 @@
   * timestamp
   * timestamp-since-last-update
   * gas station company
+* reduce Docker image size (currently ~180MB)
