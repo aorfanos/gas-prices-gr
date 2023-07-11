@@ -84,7 +84,7 @@ jobs:
       env:
         CI: true
       run: |
-        docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive test-gas-prices-gr-api:latest
+        docker run -ti --rm --env CI=true -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive test-gas-prices-gr-api:latest
 
     - name: Test app is running in Docker
       run: |
