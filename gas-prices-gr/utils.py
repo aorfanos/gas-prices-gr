@@ -6,8 +6,10 @@ from unidecode import unidecode
 
 
 def transliterate_gr2en(text):
+    """Transliterate greek time period (AM/PM) to english."""
     time_text = ''
 
+    # convert greek chars to unicode and translate to english
     if unidecode(text[-2:]) == 'pm':
         time_text = 'AM'
     elif unidecode(text[-2:]) == 'mm':
@@ -21,7 +23,6 @@ def transliterate_gr2en(text):
 def greek_date_to_ts(date):
     """Convert Greek date to timestamp."""
     date_encoded = transliterate_gr2en(date)
-    print(date_encoded)
     return time.mktime(
         datetime.datetime.strptime(
             date_encoded,
