@@ -88,4 +88,4 @@ jobs:
 
     - name: Test app is running in Docker
       run: |
-        timeout 10 docker run -d --rm -p 5000:5000 --name test-gas-prices-gr-api test-gas-prices-gr-api:latest
+        timeout 10 docker run -p 5000:5000 --name test-gas-prices-gr-api test-gas-prices-gr-api:latest
