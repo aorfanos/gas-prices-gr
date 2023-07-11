@@ -51,7 +51,7 @@ jobs:
         --md-report-verbose=1 \
         --md-report-zeros empty \
         --md-report-color never \
-        ./gas-prices-gr >> unit-tests.md
+        ./gas_prices_gr >> unit-tests.md
 
         echo "# Testing summary" >> $GITHUB_STEP_SUMMARY
         echo -en "## Unit tests\n\n" >> $GITHUB_STEP_SUMMARY
@@ -62,5 +62,5 @@ jobs:
       run: |
         echo -en "\n\n## Code coverage\n\n" >> $GITHUB_STEP_SUMMARY
         poetry run coverage report --format=markdown \
-        ./gas-prices-gr/scrape_gas_prices_vrisko.py \
+        ./gas_prices_gr/scrape_gas_prices_vrisko.py \
         >> $GITHUB_STEP_SUMMARY

@@ -10,4 +10,4 @@ COPY . /app/
 
 RUN poetry install --no-dev --no-root
 
-ENTRYPOINT [ "gunicorn", "--bind", "0.0.0.0:5000", "gas-prices-gr.scrape_gas_prices_vrisko:app"]
+ENTRYPOINT [ "gunicorn", "--bind", "0.0.0.0:5000", "gas_prices_gr.scrape_gas_prices_vrisko:app"]

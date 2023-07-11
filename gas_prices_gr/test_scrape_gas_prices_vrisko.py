@@ -1,5 +1,5 @@
 import unittest
-from scrape_gas_prices_vrisko import\
+from gas_prices_gr.scrape_gas_prices_vrisko import\
     extract_gas_price,\
     get_gas_stations_fullpage_for_location_html
 
