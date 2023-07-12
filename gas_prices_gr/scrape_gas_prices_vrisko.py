@@ -3,7 +3,9 @@ import re
 import json
 
 from bs4 import BeautifulSoup
-from flask import Flask
+from flask import Flask, make_response
+from .utils import extract_date, greek_date_to_ts
+from .gas_station_enum import find_gas_station_company
 
 FAKE_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) \
 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
@@ -13,8 +15,6 @@ headers = {
     'User-Agent': FAKE_UA,
 }
 
-# response = requests.get(URL, headers=headers)
-
 # >> Flask app init << #
 app = Flask(__name__)
 
@@ -22,23 +22,28 @@ app = Flask(__name__)
 def get_gas_stations_fullpage_for_location_html(location):
     """Returns the full page html for a given location."""
     response = requests.get(
-        f'https://www.vrisko.gr/\
-            times-kafsimon-venzinadika/{location}', headers=headers,
+        f'https://www.vrisko.gr/times-kafsimon-venzinadika/{location}', headers=headers,
     )
     if response.status_code == 200:
         return response.content
     else:
-        print(f'Error code: {response.status_code}')
+        return None
 
 
 def get_gas_stations_full(fullpage_html):
     data = {}
+    if fullpage_html is None:
+        srv_response = make_response('Location not found for vrisko', 404)
+        srv_response.status_code = 404
+        return srv_response
     soup = BeautifulSoup(fullpage_html, 'html.parser')
     gas_station_names = soup.find_all('div', class_='GasCompanyName')
     gs_names_list = []
     gas_station_addr = soup.find_all('div', class_='GasAddress')
     gs_addr_list = []
     gas_result_footer = soup.find_all('div', class_='GasResultFooter')
+    gas_result_last_update = soup.find_all('div', class_='GasResultLastUpdate')
+    icon_span = soup.find_all('span', class_='GasResultLastUpdateIcon')
 
     gs_unl_95_list = []
     gs_unl_100_list = []
@@ -46,6 +51,8 @@ def get_gas_stations_full(fullpage_html):
     gs_auto_diesel_list = []
     gs_heating_oil_list = []
     gs_heating_oil_lt_1000lt_list = []
+    last_update_date_list = []
+    icon_span_list = []
 
     for i, gas_station_name in enumerate(gas_station_names):
         gas_station_names[i] = gas_station_name.text
@@ -109,11 +116,20 @@ def get_gas_stations_full(fullpage_html):
                 ),
             )
 
-    # >> Produce result JSON << #
+    for gas_result in gas_result_last_update:
+        last_update_date_gr = extract_date(gas_result.text)
+        last_update_date_list.append(last_update_date_gr)
+
+    for i, icon in enumerate(icon_span):
+        icon_span_list.append(find_gas_station_company(icon.span.get('class')))
+
+        # >> Produce result JSON << #
     for i in range(len(gas_station_names)):
         data[gas_station_names[i]] = {
             'name': gs_names_list[i],
             'address': gs_addr_list[i],
+            'company': icon_span_list[i],
+            'last_update_ts': greek_date_to_ts(last_update_date_list[i]),
             'fuel_prices': {
                 'unleaded_95': gs_unl_95_list[i],
                 'unleaded_100': gs_unl_100_list[i],
@@ -124,7 +140,6 @@ def get_gas_stations_full(fullpage_html):
             },
         }
 
-    # print(json.dumps(data))
     return json.dumps(data)
 
 
@@ -141,11 +156,13 @@ def extract_gas_price(gas_station_fueltype_string):
 # >> Flask << #
 # dynamic route ref:
 # https://www.geeksforgeeks.org/generating-dynamic-urls-in-flask/
-@app.route('/scrape/xegr/<string:Location>')
-def scrape_xegr(Location):
+@ app.route('/scrape/vrisko/<string:Location>')
+def scrape_vriskogr(Location):
     main_page_html = get_gas_stations_fullpage_for_location_html(Location)
     return get_gas_stations_full(main_page_html)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    from wsgiref.simple_server import make_server
+    httpd = make_server('0.0.0.0', 5000, app)
+    httpd.serve_forever()

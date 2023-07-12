@@ -1,5 +1,22 @@
 import unittest
-from scrape_gas_prices_xegr import extract_gas_price
+from gas_prices_gr.scrape_gas_prices_vrisko import\
+    extract_gas_price,\
+    get_gas_stations_fullpage_for_location_html
+
+
+class TestScrapeGasPrices(unittest.TestCase):
+    def test_get_gas_stations_fullpage_for_location_html_valid(self):
+        # Test a valid location
+        location = 'athina'
+        result = get_gas_stations_fullpage_for_location_html(location)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, bytes)
+
+    def test_get_gas_stations_fullpage_for_location_html_invalid(self):
+        # Test an invalid location
+        location = 'invalid_location'
+        result = get_gas_stations_fullpage_for_location_html(location)
+        self.assertIsNone(result)
 
 
 class TestExtractGasPrice(unittest.TestCase):
