@@ -88,7 +88,8 @@ jobs:
 
     - name: Test app is running in Docker
       run: |
-        if [ timeout 10 docker run -p 5000:5000 --name test-gas-prices-gr-api test-gas-prices-gr-api:latest -eq 124 ]; then
+        TEST_APP_DKR_CMD=$(timeout 10 docker run -p 5000:5000 --name test-gas-prices-gr-api test-gas-prices-gr-api:latest)
+        if [ $TEST_APP_DKR_CMD -eq 124 ]; then
           echo "OK"
         else
           echo "Failed running Docker container"
