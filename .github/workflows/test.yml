@@ -25,7 +25,7 @@ jobs:
 
     - name: Use cached environment
       id: cache-env
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{ env.ASDF_DIR }}
         key: ${{ runner.os }}-asdf-gpgrapi-${{ hashFiles('**/.tool-versions') }}
