@@ -162,6 +162,11 @@ def scrape_vriskogr(Location):
     return get_gas_stations_full(main_page_html)
 
 
+@ app.route('/')
+def index():
+    return 'Fuel prices GR API'
+
+
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
     httpd = make_server('0.0.0.0', 5000, app)
