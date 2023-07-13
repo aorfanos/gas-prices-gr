@@ -53,3 +53,8 @@ repos:
     hooks:
     -   id: remove-tabs
         files: '\.(yaml|yml)$'
+-   repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.22
+    hooks:
+    -   id: shellcheck
+    -   id: helmlint
