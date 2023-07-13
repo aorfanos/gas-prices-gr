@@ -167,6 +167,13 @@ def index():
     return 'Fuel prices GR API'
 
 
+@ app.route('/scrape/ready')
+def scrape_ready():
+    main_page_html = get_gas_stations_fullpage_for_location_html('athina')
+    if main_page_html is not None:
+        return 'Ready'
+
+
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
     httpd = make_server('0.0.0.0', 5000, app)
