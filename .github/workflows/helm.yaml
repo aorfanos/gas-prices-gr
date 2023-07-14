@@ -3,7 +3,7 @@ name: Helm
 on:
   push:
     branches:
-      - main
+      - feat/**
 
 jobs:
   publish-chart:
