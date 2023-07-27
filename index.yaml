@@ -3,12 +3,12 @@ entries:
   gas-prices-gr-api:
   - apiVersion: v2
     appVersion: v0.0.1-test02
-    created: "2023-07-22T14:47:11.929105658Z"
+    created: "2023-07-27T21:29:16.215225218Z"
     description: A Helm chart for Kubernetes
-    digest: 45ea0f94b6893bffa8398fb230feef67855a01d9bd9d20e7329c8588d6524511
+    digest: c468ac2ebc72dbb9962736225427c3139475623f7f6e18fd947c271634cb64b3
     name: gas-prices-gr-api
     type: application
     urls:
     - gas-prices-gr-api-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-22T14:47:11.928270214Z"
+generated: "2023-07-27T21:29:16.214445176Z"
