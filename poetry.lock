@@ -530,13 +530,13 @@ testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "no
 
 [[package]]
 name = "pytest-md-report"
-version = "0.3.2"
+version = "0.4.0"
 description = "A pytest plugin to make a test results report with Markdown table format."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pytest-md-report-0.3.2.tar.gz", hash = "sha256:abe400bac1ab435c690ff0e164330007f050f963923c692384ff96d08f3b083a"},
-    {file = "pytest_md_report-0.3.2-py3-none-any.whl", hash = "sha256:b99c2e9b816d0b4fc8c0cc88e9e05b007f98220625731ce62e5534847efdfcdf"},
+    {file = "pytest-md-report-0.4.0.tar.gz", hash = "sha256:89a6e3e96b92ebeeb93b8ced6a04f5fc7f94f3f48ac9243d6d088e7ef967d404"},
+    {file = "pytest_md_report-0.4.0-py3-none-any.whl", hash = "sha256:0650e96c18426b00f5ddf0405e309b0c1025a0fd05a72c64b784ea0309a3d911"},
 ]
 
 [package.dependencies]
@@ -731,4 +731,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "143aedbf5dfa3e1190dbff79b4228adb7992d7c528662cf53df197879d8b8e20"
+content-hash = "c5f0cd97eba73e3bcf36b23c1fa6eb2641c7c4b10d5b225785ce885a9849c95f"
