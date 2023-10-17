@@ -16,7 +16,7 @@ jobs:
         fetch-depth: 0
 
     - name: Set up asdf
-      uses: asdf-vm/actions/setup@v2
+      uses: asdf-vm/actions/setup@v3
 
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
@@ -34,7 +34,7 @@ jobs:
 
     - name: Set up environment
       if: steps.cache-env.outputs.cache-hit != 'true'
-      uses: asdf-vm/actions/install@v2.2.0
+      uses: asdf-vm/actions/install@v3.0.2
 
     - name: Install dependencies
       working-directory: ${{ github.workspace }}
