@@ -247,13 +247,13 @@ toml = ["tomli"]
 
 [[package]]
 name = "dataproperty"
-version = "1.0.0"
+version = "1.0.1"
 description = "Python library for extract property from data."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "DataProperty-1.0.0-py3-none-any.whl", hash = "sha256:9949307255ef2718d820312d4c068db1429f0fe54610b775c90551350ad84711"},
-    {file = "DataProperty-1.0.0.tar.gz", hash = "sha256:a7dab3e8b64b9839aaeb7cee109ec93ec3a03c025c247c545ee988c5d5be4fcf"},
+    {file = "DataProperty-1.0.1-py3-none-any.whl", hash = "sha256:0b8b07d4fb6453fcf975b53d35dea41f3cfd69c9d79b5010c3cf224ff0407a7a"},
+    {file = "DataProperty-1.0.1.tar.gz", hash = "sha256:723e5729fa6e885e127a771a983ee1e0e34bb141aca4ffe1f0bfa7cde34650a4"},
 ]
 
 [package.dependencies]
@@ -383,6 +383,16 @@ files = [
     {file = "MarkupSafe-2.1.3-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:5bbe06f8eeafd38e5d0a4894ffec89378b6c6a625ff57e3028921f8ff59318ac"},
     {file = "MarkupSafe-2.1.3-cp311-cp311-win32.whl", hash = "sha256:dd15ff04ffd7e05ffcb7fe79f1b98041b8ea30ae9234aed2a9168b5797c3effb"},
     {file = "MarkupSafe-2.1.3-cp311-cp311-win_amd64.whl", hash = "sha256:134da1eca9ec0ae528110ccc9e48041e0828d79f24121a1a146161103c76e686"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:f698de3fd0c4e6972b92290a45bd9b1536bffe8c6759c62471efaa8acb4c37bc"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:aa57bd9cf8ae831a362185ee444e15a93ecb2e344c8e52e4d721ea3ab6ef1823"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ffcc3f7c66b5f5b7931a5aa68fc9cecc51e685ef90282f4a82f0f5e9b704ad11"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:47d4f1c5f80fc62fdd7777d0d40a2e9dda0a05883ab11374334f6c4de38adffd"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:1f67c7038d560d92149c060157d623c542173016c4babc0c1913cca0564b9939"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:9aad3c1755095ce347e26488214ef77e0485a3c34a50c5a5e2471dff60b9dd9c"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-musllinux_1_1_i686.whl", hash = "sha256:14ff806850827afd6b07a5f32bd917fb7f45b046ba40c57abdb636674a8b559c"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:8f9293864fe09b8149f0cc42ce56e3f0e54de883a9de90cd427f191c346eb2e1"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-win32.whl", hash = "sha256:715d3562f79d540f251b99ebd6d8baa547118974341db04f5ad06d5ea3eb8007"},
+    {file = "MarkupSafe-2.1.3-cp312-cp312-win_amd64.whl", hash = "sha256:1b8dd8c3fd14349433c79fa8abeb573a55fc0fdd769133baac1f5e07abf54aeb"},
     {file = "MarkupSafe-2.1.3-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:8e254ae696c88d98da6555f5ace2279cf7cd5b3f52be2b5cf97feafe883b58d2"},
     {file = "MarkupSafe-2.1.3-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cb0932dc158471523c9637e807d9bfb93e06a95cbf010f1a38b98623b929ef2b"},
     {file = "MarkupSafe-2.1.3-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9402b03f1a1b4dc4c19845e5c749e3ab82d5078d16a2a4c2cd2df62d57bb0707"},
@@ -474,27 +484,27 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pytablewriter"
-version = "1.0.0"
+version = "1.2.0"
 description = "pytablewriter is a Python library to write a table in various formats: AsciiDoc / CSV / Elasticsearch / HTML / JavaScript / JSON / LaTeX / LDJSON / LTSV / Markdown / MediaWiki / NumPy / Excel / Pandas / Python / reStructuredText / SQLite / TOML / TSV / YAML."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pytablewriter-1.0.0-py3-none-any.whl", hash = "sha256:d789a363a71de312e7c6f18ba57f15e14b1b73b910ab636ba7b943779b5024a5"},
-    {file = "pytablewriter-1.0.0.tar.gz", hash = "sha256:3c81496ad5c119741f8adc59218574a3be12ba5d3fb190a595cd301d1625d404"},
+    {file = "pytablewriter-1.2.0-py3-none-any.whl", hash = "sha256:4a30e2bb4bf5bc1069b1d2b2bc41947577c4517ab0875b23a5b194d296f543d8"},
+    {file = "pytablewriter-1.2.0.tar.gz", hash = "sha256:0204a4bb684a22140d640f2599f09e137bcdc18b3dd49426f4a555016e246b46"},
 ]
 
 [package.dependencies]
-DataProperty = ">=0.55.0,<2"
+DataProperty = ">=1.0.1,<2"
 mbstrdecoder = ">=1.0.0,<2"
 pathvalidate = ">=2.3.0,<4"
 setuptools = ">=38.3.0"
 tabledata = ">=1.3.1,<2"
 tcolorpy = ">=0.0.5,<1"
-typepy = {version = ">=1.2.0,<2", extras = ["datetime"]}
+typepy = {version = ">=1.3.2,<2", extras = ["datetime"]}
 
 [package.extras]
-all = ["PyYAML (>=3.11,<7)", "SimpleSQLite (>=1.3.2,<2)", "XlsxWriter (>=0.9.6,<4)", "dominate (>=2.1.5,<3)", "elasticsearch (>=8.0.1,<9)", "loguru (>=0.4.1,<1)", "pandas (>=0.25.3,<3)", "pytablereader (>=0.31.3,<2)", "pytablewriter-altrow-theme (>=0.0.2,<1)", "simplejson (>=3.8.1,<4)", "toml (>=0.9.3,<1)", "xlwt"]
-docs = ["PyYAML (>=3.11,<7)", "SimpleSQLite (>=1.3.2,<2)", "Sphinx (>=2.4)", "XlsxWriter (>=0.9.6,<4)", "dominate (>=2.1.5,<3)", "elasticsearch (>=8.0.1,<9)", "loguru (>=0.4.1,<1)", "pandas (>=0.25.3,<3)", "pytablereader (>=0.31.3,<2)", "pytablewriter-altrow-theme (>=0.0.2,<1)", "simplejson (>=3.8.1,<4)", "sphinx-rtd-theme (>=1.2.2)", "toml (>=0.9.3,<1)", "xlwt"]
+all = ["PyYAML (>=3.11,<7)", "SimpleSQLite (>=1.3.2,<2)", "XlsxWriter (>=0.9.6,<4)", "dominate (>=2.1.5,<3)", "elasticsearch (>=8.0.1,<9)", "loguru (>=0.4.1,<1)", "pandas (>=0.25.3,<3)", "pytablereader (>=0.31.3,<2)", "pytablewriter-altcol-theme (>=0.1.0,<1)", "pytablewriter-altrow-theme (>=0.2.0,<1)", "simplejson (>=3.8.1,<4)", "toml (>=0.9.3,<1)", "xlwt"]
+docs = ["PyYAML (>=3.11,<7)", "SimpleSQLite (>=1.3.2,<2)", "Sphinx (>=2.4)", "XlsxWriter (>=0.9.6,<4)", "dominate (>=2.1.5,<3)", "elasticsearch (>=8.0.1,<9)", "loguru (>=0.4.1,<1)", "pandas (>=0.25.3,<3)", "pytablereader (>=0.31.3,<2)", "pytablewriter-altcol-theme (>=0.1.0,<1)", "pytablewriter-altrow-theme (>=0.2.0,<1)", "simplejson (>=3.8.1,<4)", "sphinx-rtd-theme (>=1.2.2)", "toml (>=0.9.3,<1)", "xlwt"]
 es = ["elasticsearch (>=8.0.1,<9)"]
 es8 = ["elasticsearch (>=8.0.1,<9)"]
 excel = ["XlsxWriter (>=0.9.6,<4)", "xlwt"]
@@ -503,8 +513,8 @@ html = ["dominate (>=2.1.5,<3)"]
 logging = ["loguru (>=0.4.1,<1)"]
 pandas = ["pandas (>=0.25.3,<3)"]
 sqlite = ["SimpleSQLite (>=1.3.2,<2)"]
-test = ["PyYAML (>=3.11,<7)", "SimpleSQLite (>=1.3.2,<2)", "XlsxWriter (>=0.9.6,<4)", "beautifulsoup4 (>=4.10)", "dominate (>=2.1.5,<3)", "elasticsearch (>=8.0.1,<9)", "idna (<3)", "loguru (>=0.4.1,<1)", "pandas (>=0.25.3,<3)", "pytablereader (>=0.31.3,<2)", "pytablereader[excel,sqlite] (>=0.31.3)", "pytablewriter-altrow-theme (>=0.0.2,<1)", "pytest (>=6.0.1)", "pytest-md-report (>=0.1)", "simplejson (>=3.8.1,<4)", "sqliteschema (>=1.3.0)", "tablib (>=3.2.0)", "toml (>=0.9.3,<1)", "xlwt"]
-theme = ["pytablewriter-altrow-theme (>=0.0.2,<1)"]
+test = ["PyYAML (>=3.11,<7)", "SimpleSQLite (>=1.3.2,<2)", "XlsxWriter (>=0.9.6,<4)", "beautifulsoup4 (>=4.10)", "dominate (>=2.1.5,<3)", "elasticsearch (>=8.0.1,<9)", "loguru (>=0.4.1,<1)", "pandas (>=0.25.3,<3)", "pytablereader (>=0.31.3,<2)", "pytablereader[excel,sqlite] (>=0.31.3)", "pytablewriter-altcol-theme (>=0.1.0,<1)", "pytablewriter-altrow-theme (>=0.2.0,<1)", "pytest (>=6.0.1)", "pytest-md-report (>=0.4.1)", "simplejson (>=3.8.1,<4)", "sqliteschema (>=1.3.0)", "tablib (>=3.2.0)", "toml (>=0.9.3,<1)", "xlwt"]
+theme = ["pytablewriter-altcol-theme (>=0.1.0,<1)", "pytablewriter-altrow-theme (>=0.2.0,<1)"]
 toml = ["toml (>=0.9.3,<1)"]
 yaml = ["PyYAML (>=3.11,<7)"]
 
@@ -530,18 +540,18 @@ testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "no
 
 [[package]]
 name = "pytest-md-report"
-version = "0.4.0"
-description = "A pytest plugin to make a test results report with Markdown table format."
+version = "0.6.0"
+description = "A pytest plugin to generate test outcomes reports with markdown table format."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pytest-md-report-0.4.0.tar.gz", hash = "sha256:89a6e3e96b92ebeeb93b8ced6a04f5fc7f94f3f48ac9243d6d088e7ef967d404"},
-    {file = "pytest_md_report-0.4.0-py3-none-any.whl", hash = "sha256:0650e96c18426b00f5ddf0405e309b0c1025a0fd05a72c64b784ea0309a3d911"},
+    {file = "pytest_md_report-0.6.0-py3-none-any.whl", hash = "sha256:db7a78e2f19e3de59e86c8602cf3e2beff166c45533550c834a721dc82de7bbd"},
+    {file = "pytest_md_report-0.6.0.tar.gz", hash = "sha256:a34139f3b596e0c6d9fd66f5c5e83265b3f13e582d8e164c56a8ab6689165cdb"},
 ]
 
 [package.dependencies]
-pytablewriter = ">=0.59.0,<2"
-pytest = ">=3.3.2,<6.0.0 || >6.0.0,<8"
+pytablewriter = ">=1.2.0,<2"
+pytest = ">=3.3.2,<6.0.0 || >6.0.0,<9"
 tcolorpy = ">=0.0.5,<1"
 typepy = ">=1.1.1,<2"
 
@@ -664,13 +674,13 @@ test = ["pytest", "pytest-md-report (>=0.1)"]
 
 [[package]]
 name = "typepy"
-version = "1.3.1"
+version = "1.3.2"
 description = "typepy is a Python library for variable type checker/validator/converter at a run time."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "typepy-1.3.1-py3-none-any.whl", hash = "sha256:892566bff279368d63f02901aba0a3ce78cd7a319ec1f2bf6c8baab3520207a3"},
-    {file = "typepy-1.3.1.tar.gz", hash = "sha256:dfc37b888d6eed8542208389efa60ec8454e06fd84b276b45b2e33897f9d7825"},
+    {file = "typepy-1.3.2-py3-none-any.whl", hash = "sha256:d5d1022a424132622993800f1d2cd16cfdb691ac4e3b9c325f0fcb37799db1ae"},
+    {file = "typepy-1.3.2.tar.gz", hash = "sha256:b69fd48b9f50cdb3809906eef36b855b3134ff66c8893a4f8580abddb0b39517"},
 ]
 
 [package.dependencies]
@@ -731,4 +741,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "c5f0cd97eba73e3bcf36b23c1fa6eb2641c7c4b10d5b225785ce885a9849c95f"
+content-hash = "6bacccac89396fdfa14438382fbe9c8f3ca28323c9753b14813568948d1e11c5"
