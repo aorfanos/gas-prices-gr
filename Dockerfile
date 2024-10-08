@@ -1,4 +1,4 @@
-FROM python:3.11.4-slim-bullseye as base
+FROM python:3.13.0-slim-bullseye as base
 
 WORKDIR /build
 
@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir \
     poetry config virtualenvs.create false && \
     poetry export -f requirements.txt > requirements.txt
 
-FROM python:3.11.4-slim-bullseye as prod
+FROM python:3.13.0-slim-bullseye as prod
 
 COPY --from=base /build/requirements.txt /app/requirements.txt
 COPY --from=base /build/gas_prices_gr /app/gas_prices_gr/
