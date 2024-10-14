@@ -1,4 +1,4 @@
-poetry 1.5.1
+poetry 1.8.4
 python 3.11.4
 pre-commit 3.3.3
 ruby 3.2.2
