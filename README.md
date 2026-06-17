@@ -35,3 +35,5 @@ by a dictionary with the following keys:
 * auto_diesel: The price of auto diesel at the gas station.
 * heating_oil: The price of heating oil at the gas station.
 * heating_oil_lt_1000lt: The price of heating oil for quantities > 1000 lt
+
+* 
